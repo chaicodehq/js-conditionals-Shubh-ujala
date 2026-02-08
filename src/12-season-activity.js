@@ -32,4 +32,50 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  if(month < 1 || month >12){
+    return null;
+  }
+  let season = '';
+  if(month == 12 || month == 1 || month == 2){
+    season = 'Winter';
+  }else if(month == 3 || month == 4 || month == 5){
+    season = "Spring";
+  }else if(month == 6 || month == 7 || month == 8){
+    season = "Summer";
+  }else{
+    season = "Autumn";
+  }
+
+  let returnObj = {
+    season : "",
+    activity : ""
+  }
+
+  if(season == "Winter" && temperature<0){
+    returnObj.season = 'Winter'
+    returnObj.activity = "skiing"
+  }else if(season == "Winter" && temperature>=0){
+    returnObj.season = 'Winter'
+    returnObj.activity = "ice skating"
+  }else if(season == "Spring" && temperature> 20){
+    returnObj.season = 'Spring'
+    returnObj.activity = "hiking"
+  }else if(season == "Spring" && temperature<=20){
+    returnObj.season = 'Spring'
+    returnObj.activity = 'museum visit'
+  }else if(season == "Summer" && temperature>35){
+    returnObj.season = 'Summer'
+    returnObj.activity = "swimming"
+  }else if(season == "Summer" && temperature<=35){
+    returnObj.season = 'Summer'
+    returnObj.activity = "cycling"
+  }else if(season == "Autumn" && temperature>15){
+    returnObj.season = 'Autumn'
+    returnObj.activity = "nature walk"
+  }else{
+    returnObj.season = 'Autumn'
+    returnObj.activity = "reading at a cafe"
+  }
+
+  return returnObj;
 }
