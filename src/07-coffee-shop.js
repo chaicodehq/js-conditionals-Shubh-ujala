@@ -32,4 +32,83 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+  if (size != "small" && size != "medium" && size != "large") {
+    return -1;
+  }
+
+  let total_price = 0;
+  if (size == "small") {
+    if (
+      type != "regular" &&
+      type != "latte" &&
+      type != "cappuccino" &&
+      type != "mocha"
+    ) {
+      return -1;
+    }
+    total_price += 3.0;
+    total_price += addOns(type, total_price);
+    if (extras.whippedCream) {
+      total_price += 0.5;
+    }
+    if (extras.extraShot) {
+      total_price += 0.75;
+    }
+    return total_price;
+  } else if (size == "medium") {
+    if (
+      type != "regular" &&
+      type != "latte" &&
+      type != "cappuccino" &&
+      type != "mocha"
+    ) {
+      return -1;
+    }
+    total_price += 4.0;
+    total_price += addOns(type, total_price);
+    if (extras.whippedCream) {
+      total_price += 0.5;
+    }
+    if (extras.extraShot) {
+      total_price += 0.75;
+    }
+    return total_price;
+  } else {
+    if (
+      type != "regular" &&
+      type != "latte" &&
+      type != "cappuccino" &&
+      type != "mocha"
+    ) {
+      return -1;
+    }
+    total_price += 5.0;
+    total_price += addOns(type, total_price);
+    if (extras.whippedCream) {
+      total_price += 0.5;
+    }
+    if (extras.extraShot) {
+      total_price += 0.75;
+    }
+    return total_price;
+  }
+}
+
+function addOns(type) {
+ 
+  switch (type) {
+    case "regular":
+      return 0.0;
+      break;
+    case "latte":
+      return  1.0;
+      break;
+    case "cappuccino":
+      return  1.5;
+      break;
+    default:
+      return  2.0;
+      break;
+  }
+  
 }
